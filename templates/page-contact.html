@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+{%load static%}
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Contact - RightBLOG</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+
+    <!-- script
+    ================================================== -->
+    <script src="{% static 'js/modernizr.js'%}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'favicon.png'%}" type="image/png">
+    <link rel="icon" href="{% static 'favicon.png'%}" type="image/png">
+
+</head>
+
+<body id="top">
+
+<!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header header">
+
+        <div class="header__logo">
+            <a class="logo" href="index">
+                <img src="{% static 'images/logo.png'%}" alt="Homepage">
+            </a>
+        </div> <!-- end header__logo -->
+
+ {% if not request.user.is_authenticated %}
+        <a class="header__search-trigger1" href="login"><span>LOGIN</span></a>
+        {% endif %}
+{% if request.user.is_authenticated %}
+        <a class="header__search-trigger1" href="login"><span>{{ user.get_short_name }}</span></a>
+        <a class="header__search-trigger2" href="logout"><img src="{% static 'images/icons/icons8-sign-out-26.png' %}" height="15px" width="15px" alt=""> </a>
+{% endif %}
+        <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+        <nav class="header__nav-wrap">
+
+            <h2 class="header__nav-heading h6">Navigate to</h2>
+
+            <ul class="header__nav">
+                <li><a href="index" title="">Home</a></li>
+
+                <li >{% for blog in creatorsb|slice:'1' %}
+                    <a href="blog/{{blog.id}}" title="">Blog</a>
+{% endfor %}
+                </li>
+                <li><a href="page-about" title="">About</a></li>
+                <li class="current"><a href="page-contact" title="">Contact</a></li>
+            </ul> <!-- end header__nav -->
+
+            <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+        </nav> <!-- end header__nav-wrap -->
+
+    </header> <!-- s-header -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content s-content--top-padding s-content--narrow">
+
+        <div class="row narrow">
+            <div class="col-full s-content__header">
+                <h1 class="display-1 display-1--with-line-sep">Contact Us.</h1>
+                <p class="lead">
+                I blog, tweet, write books and do lots of public speaking about Transition and represent the movement at different events.
+
+What do you find most surprising or delightful about working in the field of Transition?
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-full s-content__main">
+                <p>
+                <img src="{% static 'images/thumbs/contact/contact-1000.jpg'%}"
+                     src="{% static 'images/thumbs/contact/contact-2000.jpg'%} 2000w,
+                             {% static 'images/thumbs/contact/contact-1000.jpg'%} 1000w,
+                             {% static 'images/thumbs/contact/contact-500.jpg'%} 500w"
+                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                </p>
+
+                <h2>Say Hello</h2>
+
+                <p>
+                It is always an enormous honour to visit places that are putting Transition into practice, and the excitement, self-belief and sense of possibility that they are so happy to share.
+                    </p><p>Every place has its surprises, every story that comes into us at Transition Network has its surprises, and I suspect that there are plenty more such surprises to come!</p>
+
+                </p>
+
+                <div id="map-wrap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1375.0861178021742!2d85.32969913027003!3d27.706111932542647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190a74aa1f23%3A0x74ebef82ad0e5c15!2sSoftwarica%20College%20Of%20IT%20%26%20E-Commerce!5e0!3m2!1sen!2snp!4v1581147342341!5m2!1sen!2snp" width="100%" height="420px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div> 
+
+                <div class="row">
+                    <div class="col-six tab-full">
+                        <h4>Where to Find Us</h4>
+
+                        <p>
+                        Softwarica college of IT and E-commerce<br>
+                        Dillibazar, KTM<br>
+                        44600
+                        </p>
+
+                    </div>
+
+                    <div class="col-six tab-full">
+                        <h4>Contact Info</h4>
+
+                        <p>contact@sushmita.com<br>
+                        info@sushmita.com <br>
+                        Phone: (+977) 9801234567
+                        </p>
+
+                    </div>
+                </div>
+
+                <h4>Get In Touch</h4>
+
+                <form name="cForm" id="cForm" class="contact-form" method="post" action="">
+                    <fieldset>
+
+                        <div>
+                            <input name="cName" id="cName" class="full-width" placeholder="Your Name*" value="" type="text">
+                        </div>
+
+                        <div class="form-field">
+                            <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email*" value="" type="text">
+                        </div>
+
+                        <div class="form-field">
+                            <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
+                        </div>
+
+                        <div class="message form-field">
+                        <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message*"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit btn btn--primary btn--large full-width">Send Message</button>
+
+                    </fieldset>
+                </form>
+
+            </div> <!-- s-content__main -->
+        </div> <!-- end row -->
+
+    </section> <!-- end s-content -->
+
+
+    <!-- s-extra
+    ================================================== -->
+    <section class="s-extra">
+
+        <div class="row">
+
+            <div class="col-seven md-six tab-full popular">
+                <h3>Popular Posts</h3>
+
+                <div class="block-1-2 block-m-full popular__posts">
+                    {% for blog in creatorsb|slice:6 %}
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="{% static 'blogimg/'%}{{blog.image}}" alt="">
+                        </a>
+                        <h5>{{blog.topic}}</h5>
+                        <section class="popular__meta">
+                            <span class="popular__author"><span>By</span> <a href="#0">{{blog.full_name}}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="{{blog.date}}">{{blog.date}}</time></span>
+                        </section>
+                    </article>
+                    {% endfor %}
+
+
+                </div> <!-- end popular_posts -->
+            </div> <!-- end popular -->
+
+            <div class="col-four md-six tab-full end">
+                <div class="row">
+                    <div class="col-six md-six mob-full categories">
+
+                    </div> <!-- end categories -->
+
+                    <div class="col-six md-six mob-full sitelinks">
+                        <h3>Site Links</h3>
+
+                        <ul class="linklist">
+                            <li><a href="index">Home</a></li>
+                            {% for blog in creatorsb|slice:'1' %}
+                            <li><a href="blog/{{blog.id}}">Blog</a></li>
+                            {% endfor %}
+                            <li><a href="page-about">About</a></li>
+                            <li><a href="page-contact">Contact</a></li>
+                            <li><a href="login">Login</a></li>
+                            <li><a href="creator">Creator</a></li>
+                        </ul>
+                    </div> <!-- end sitelinks -->
+                </div>
+            </div>
+        </div> <!-- end row -->
+
+    </section> <!-- end s-extra -->
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+                
+                <div class="col-six tab-full s-footer__about">
+                        
+                    <h4>About RightBLOG</h4>
+
+                    <p>Blogging has certainly come a very long way. What started out originally as a means of keeping an online journal or diary has now become a lucrative enterprise. People actually earn money from blogging, with some bloggers earning more than what most people in conventional jobs earn. In fact, it has become a source of livelihood for some, with bloggers viewing it as their bread and butter.</p>
+
+                </div> <!-- end s-footer__about -->
+
+                 <div class="col-six tab-full s-footer__subscribe">
+
+                    <h4>Our Newsletter</h4>
+
+                    <p>Not every business discounts their product, but getting insider information can be valuable too. For example, a theater may announce tickets for a show or give early bird online sales access to people who are on the email list.</p>
+
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="group" novalidate="true">
+
+                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+
+                            <input type="submit" name="subscribe" value="Send">
+
+                            <label for="mc-email" class="subscribe-message"></label>
+
+                        </form>
+                    </div>
+
+                </div> <!-- end s-footer__subscribe -->
+
+            </div>
+        </div> <!-- end s-footer__main -->
+
+        <div class="s-footer__bottom">
+            <div class="row">
+
+                <div class="col-six">
+                    <ul class="footer-social">
+                        <li>
+                            <a href="#0"><i class="fab fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-youtube"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-pinterest"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-six">
+                    <div class="s-footer__copyright">
+                    <span>
+                        Assignment by Sushmita Budhathoki for <i>STW205CDE-Developing the Modern</i>.
+
+                    </span>
+                    </div>
+                    </div>
+
+                
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+        <div class="go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top"></a>
+        </div>
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+    <script src="{% static 'js/plugins.js'%}"></script>
+    <script src="{% static 'https://maps.googleapis.com/maps/api/js"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+
+</body>
+
+</html>
